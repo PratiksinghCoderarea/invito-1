@@ -106,25 +106,29 @@ body {
     object-fit: cover;
 }
 
-main {
+.main {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-main .container {
+.main .container {
     position: relative;
     margin-top: 7vh;
-
+    width: 100%;
     display: flex;
     
     justify-content: space-between;
     /* background: #ddd; */
 }
-
+.box {
+    background: #000;
+    overflow: scroll;
+    max-height: 362px;
+}
 .col-9 {
-    max-width: 65%;
+    width: 50%;
     margin-top: 5vh;
    
    
@@ -217,12 +221,9 @@ button.clicked{
 }
 
 .cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%;    
+    height: 400px;    
+    object-fit: contain;
 }
 
 .col-9 .card .top .userDetails h3 {
@@ -238,10 +239,10 @@ button.clicked{
 }
 
 .imgBx {
-    position: relative;
     width: 100%;
-    min-height: 600px;
+    display: flex;
     margin: 10px 0 15px;
+    border: 2px solid ;
 }
 
 .actionBtns {
@@ -249,7 +250,14 @@ button.clicked{
     justify-content: space-between;
     align-items: center;
 }
-
+.simg{
+    width: 7px;
+    height: 7px;
+}
+.simg img{
+    width: 7px;
+    height: 7px;
+}
 .actionBtns svg {
     cursor: pointer;
 }

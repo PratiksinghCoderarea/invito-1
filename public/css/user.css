@@ -23,6 +23,7 @@ body {
     padding-bottom: 3rem;
 }
 
+
 img {
     display: block;
 }
@@ -77,6 +78,17 @@ img {
 .userProfile-image img {
     border-radius: 50%;
 }
+.imgcover{
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+
+}
+.icover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .stats{
     display: flex;
     justify-content: space-between;
@@ -94,12 +106,13 @@ br{
 
 .userProfile-user-settings {
     margin-top: 1.1rem;
+    
 }
 
 .userProfile-user-name {
-    display: inline-block;
-    font-size: 3.2rem;
+    
     font-weight: 300;
+    width: 10vw;
 }
 
 .userProfile-edit-btn {
@@ -234,7 +247,7 @@ br{
     animation: loader 500ms linear infinite;
 }
 
-@media screen and (max-width: 40rem) {
+@media screen and (max-width: 977px) {
     .userProfile {
         display: flex;
         flex-wrap: wrap;
@@ -253,10 +266,12 @@ br{
         width: auto;
     }
 
-    .userProfile-image img {
-        width: 7.7rem;
+  
+    .userProfile-image {
+        /* Adjust the width of the image for smaller screens */
+        width: 50%; /* You can adjust this value as needed */
+        margin-right: 0; /* Remove the margin-right */
     }
-
  
     .userProfile-user-name {
         font-size: 2.2rem;
@@ -276,6 +291,10 @@ br{
     .userProfile-bio,
     .userProfile-stats {
         flex-basis: 100%;
+    }
+    #settingsBtn{
+       
+        width: 1.6rem;
     }
 
     .userProfile-stats {
@@ -350,20 +369,14 @@ Remove or comment-out the code block below to see how the browser will fall-back
     @media (max-width: 980px) {
         .userProfile {
             grid-template-columns: auto 1fr;
-            grid-row-gap: 1.5rem;
+            grid-row-gap: 2rem;
         }
 
         .userProfile-image {
-            grid-row: 1 / 2;
+            grid-row: 1 / 1;
         }
 
-        .nameSetting {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            grid-gap: 5rem;
-            
-            width: 100%;
-        }
+       
 
         .userProfile-edit-btn,
         .userProfile-stats,
