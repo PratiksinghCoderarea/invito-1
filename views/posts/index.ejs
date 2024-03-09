@@ -1,4 +1,24 @@
 <%- layout("/layouts/boilerplate") -%>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    #toast {
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+
+  <div id="toast" class="fixed hidden right-3 top-3 mb-4 bg-gray-800 text-white py-2 px-4 rounded-lg shadow-lg z-50">
+    <p class="font-semibold">Saved!</p>
+  </div>
 
 
 
@@ -37,7 +57,7 @@
                 </div>
               </div>
             </a>
-            <div class="imgBx">
+            <div class="box">
               <img src="<%= post.image.url %>" alt="post-1" class="cover" />
             </div>
             <div class="bottom">
@@ -70,6 +90,11 @@
                             <% } %>
                               <% } %>
                 </div>
+                <div class="simg">
+                  <button style="background-color: white; border: 0px; border-radius: 0px;" id="saved" onclick="saved('hi<%= post._id %>')"><i
+                      class="fa-regular fa-bookmark" id='hi<%= post._id %>'></i></button>
+                </div>
+
               </div>
             </div>
           </div>
@@ -84,6 +109,31 @@
 
 
   <script>
+
+function saved(postId) {
+    let icon = document.getElementById(postId);
+    console.log(icon)
+
+    // Toggle the classes of the icon
+    if (icon.classList.contains('fa-regular')) {
+      // If the icon is currently regular, change it to solid
+      icon.classList.remove('fa-regular');
+      icon.classList.add('fa-solid');
+    } else {
+      // If the icon is currently solid, change it to regular
+      icon.classList.remove('fa-solid');
+      icon.classList.add('fa-regular');
+    }
+
+    // Show toast notification
+    document.getElementById("toast").classList.remove('hidden');
+
+    // Hide toast notification after 3 seconds
+    setTimeout(function () {
+      document.getElementById("toast").classList.add('hidden');
+    }, 3000);
+  }
+
     const sender_id = "<%= currUser._id %>";
     let socket = io("/user-namespace", {
       auth: {
